@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="出走半生，归来仍是少年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="時光深巷夜叶猫">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="webpack性能瓶颈用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:      webpack 的构建过程太花时间   webpack 打包的结果体积太大    webpack优化方案优化loader加载最常见的优化方式是，用 include 或 exclude 来帮我们避免不必要的转译，比如 webpack 官方在介绍 babel">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS性能优化">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/js性能优化/index.html">
 <meta property="og:site_name" content="時光深巷夜叶猫">
-<meta property="og:description" content="出走半生，归来仍是少年">
+<meta property="og:description" content="webpack性能瓶颈用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:      webpack 的构建过程太花时间   webpack 打包的结果体积太大    webpack优化方案优化loader加载最常见的优化方式是，用 include 或 exclude 来帮我们避免不必要的转译，比如 webpack 官方在介绍 babel">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-12T12:19:46.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="時光深巷夜叶猫">
-<meta name="twitter:description" content="出走半生，归来仍是少年">
+<meta name="twitter:title" content="JS性能优化">
+<meta name="twitter:description" content="webpack性能瓶颈用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:      webpack 的构建过程太花时间   webpack 打包的结果体积太大    webpack优化方案优化loader加载最常见的优化方式是，用 include 或 exclude 来帮我们避免不必要的转译，比如 webpack 官方在介绍 babel">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/js性能优化/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>時光深巷夜叶猫</title>
+  <title>JS性能优化 | 時光深巷夜叶猫</title>
   
 
 
@@ -171,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,7 +211,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -323,9 +324,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -357,10 +358,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/12/js性能优化/" class="post-title-link" itemprop="url">JS性能优化</a>
+          <h1 class="post-title" itemprop="name headline">JS性能优化
+
               
             
           </h1>
@@ -442,9 +441,7 @@
       
 
       
-        
-          
-            <h2 id="webpack性能瓶颈"><a href="#webpack性能瓶颈" class="headerlink" title="webpack性能瓶颈"></a>webpack性能瓶颈</h2><p>用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:    </p>
+        <h2 id="webpack性能瓶颈"><a href="#webpack性能瓶颈" class="headerlink" title="webpack性能瓶颈"></a>webpack性能瓶颈</h2><p>用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:    </p>
 <ul>
 <li>webpack 的构建过程太花时间  </li>
 <li>webpack 打包的结果体积太大  </li>
@@ -465,8 +462,6 @@
 <h4 id="Happypack"><a href="#Happypack" class="headerlink" title="Happypack"></a>Happypack</h4><p>大家知道，webpack 是单线程的，就算此刻存在多个任务，你也只能排队一个接一个地等待处理。这是 webpack 的缺点，好在我们的 CPU 是多核的，Happypack 会充分释放 CPU 在多核并发方面的优势，帮我们把任务分解给多个子进程去并发执行，大大提升打包效率。<br>HappyPack 的使用方法也非常简单，只需要我们把对 loader 的配置转移到 HappyPack 中去就好，我们可以手动告诉 HappyPack 我们需要多少个并发的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const HappyPack = require(&apos;happypack&apos;)</span><br><span class="line">// 手动创建进程池</span><br><span class="line">const happyThreadPool =  HappyPack.ThreadPool(&#123; size: os.cpus().length &#125;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        // 问号后面的查询参数指定了处理这类文件的HappyPack实例的名字</span><br><span class="line">        loader: &apos;happypack/loader?id=happyBabel&apos;,</span><br><span class="line">        ...</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    ...</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">      // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应</span><br><span class="line">      id: &apos;happyBabel&apos;,</span><br><span class="line">      // 指定进程池</span><br><span class="line">      threadPool: happyThreadPool,</span><br><span class="line">      loaders: [&apos;babel-loader?cacheDirectory&apos;]</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://juejin.im/book/5b936540f265da0a9624b04b/section/5b97cd22e51d450e8f5f6375" target="_blank" rel="noopener">参考文章</a></p>
 
-          
-        
       
     </div>
 
@@ -487,14 +482,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -504,14 +505,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -531,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -614,6 +625,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack性能瓶颈"><span class="nav-number">1.</span> <span class="nav-text">webpack性能瓶颈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack优化方案"><span class="nav-number">2.</span> <span class="nav-text">webpack优化方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化loader加载"><span class="nav-number">2.1.</span> <span class="nav-text">优化loader加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化第三方库"><span class="nav-number">2.2.</span> <span class="nav-text">优化第三方库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DllPlugin"><span class="nav-number">2.2.1.</span> <span class="nav-text">DllPlugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Happypack"><span class="nav-number">2.2.2.</span> <span class="nav-text">Happypack</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -743,6 +771,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -758,6 +790,8 @@
 
   
 
+
+  
 
 
   
