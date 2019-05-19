@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="出走半生，归来仍是少年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="時光深巷夜叶猫">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的简单运用。 vue项目搭建项目的搭建需要安装node，打包工具和vue">
+<meta name="keywords" content="js,openlayer,gis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenLayer在vue中的简单使用">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/OpenLayer在vue中的简单使用/index.html">
 <meta property="og:site_name" content="時光深巷夜叶猫">
-<meta property="og:description" content="出走半生，归来仍是少年">
+<meta property="og:description" content="前言毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的简单运用。 vue项目搭建项目的搭建需要安装node，打包工具和vue">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-19T10:55:55.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="時光深巷夜叶猫">
-<meta name="twitter:description" content="出走半生，归来仍是少年">
+<meta name="twitter:title" content="OpenLayer在vue中的简单使用">
+<meta name="twitter:description" content="前言毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的简单运用。 vue项目搭建项目的搭建需要安装node，打包工具和vue">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/OpenLayer在vue中的简单使用/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>時光深巷夜叶猫</title>
+  <title>OpenLayer在vue中的简单使用 | 時光深巷夜叶猫</title>
   
 
 
@@ -171,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,7 +211,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -323,9 +324,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -357,10 +358,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/19/OpenLayer在vue中的简单使用/" class="post-title-link" itemprop="url">OpenLayer在vue中的简单使用</a>
+          <h1 class="post-title" itemprop="name headline">OpenLayer在vue中的简单使用
+
               
             
           </h1>
@@ -442,9 +441,7 @@
       
 
       
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的<strong>简单运用</strong>。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的<strong>简单运用</strong>。</p>
 <h2 id="vue项目搭建"><a href="#vue项目搭建" class="headerlink" title="vue项目搭建"></a>vue项目搭建</h2><p>项目的搭建需要安装node，打包工具和vue-cli<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack --save</span><br><span class="line">npm install vue-cli --save</span><br></pre></td></tr></table></figure></p>
 <p>接下来进入项目目录，输入以下命令后，会有对话框提示输入一些信息，默认可直接回车。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack project-name</span><br></pre></td></tr></table></figure></p>
 <p>通过生成的package.json文件夹生成依赖包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
@@ -455,8 +452,6 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文章仅限于新手使用，所使用的实例是openlayer简单的是个实例。不过管中窥豹，可见一斑。openlayer多为配置项，如同echarts插件，说简单很简单，说复杂也有很多东西可以去学习。</p>
 <p>  注：<br><a href="https://github.com/sean1224/gis-lixi" target="_blank" rel="noopener">项目已上传，欢迎star</a><br><a href="https://openlayers.org/" title="openlayer官网" target="_blank" rel="noopener">openlayer官网</a><br><a href="http://weilin.me/ol3-primer/index.html" title="openlayer中文翻译文档" target="_blank" rel="noopener">openlayer中文翻译文档</a><br><a href="https://cn.vuejs.org/v2/guide/" title="vue官网" target="_blank" rel="noopener">vue官网</a></p>
 
-          
-        
       
     </div>
 
@@ -477,194 +472,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/js性能优化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="li jian">
-      <meta itemprop="description" content="出走半生，归来仍是少年">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="時光深巷夜叶猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/12/js性能优化/" class="post-title-link" itemprop="url">JS性能优化</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-12 20:01:50 / 修改时间：20:19:46" itemprop="dateCreated datePublished" datetime="2019-05-12T20:01:50+08:00">2019-05-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/js/" rel="tag"># js</a>
           
-
+            <a href="/tags/openlayer/" rel="tag"># openlayer</a>
           
-            
-            
+            <a href="/tags/gis/" rel="tag"># gis</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="webpack性能瓶颈"><a href="#webpack性能瓶颈" class="headerlink" title="webpack性能瓶颈"></a>webpack性能瓶颈</h2><p>用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:    </p>
-<ul>
-<li>webpack 的构建过程太花时间  </li>
-<li>webpack 打包的结果体积太大  </li>
-</ul>
-<h2 id="webpack优化方案"><a href="#webpack优化方案" class="headerlink" title="webpack优化方案"></a>webpack优化方案</h2><h3 id="优化loader加载"><a href="#优化loader加载" class="headerlink" title="优化loader加载"></a>优化loader加载</h3><p>最常见的优化方式是，用 include 或 exclude 来帮我们避免不必要的转译，比如 webpack 官方在介绍 babel-loader 时给出的示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.js$/,</span><br><span class="line">      exclude: /(node_modules|bower_components)/,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: &apos;babel-loader&apos;,</span><br><span class="line">        options: &#123;</span><br><span class="line">          presets: [&apos;@babel/preset-env&apos;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这段代码帮我们规避了对庞大的 node_modules 文件夹或者 bower_components 文件夹的处理。但通过限定文件范围带来的性能提升是有限的。除此之外，如果我们选择开启缓存将转译结果缓存至文件系统，则至少可以将 babel-loader 的工作效率提升两倍。要做到这点，我们只需要为 loader 增加相应的参数设定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader: &apos;babel-loader?cacheDirectory=true&apos;</span><br></pre></td></tr></table></figure></p>
-<p>尽管我们可以在 loader 配置时通过写入 exclude 去避免 babel-loader 对不必要的文件的处理，但是考虑到这个规则仅作用于这个 loader，像一些类似 UglifyJsPlugin 的 webpack 插件在工作时依然会被这些庞大的第三方库拖累，webpack 构建速度依然会因此大打折扣。所以针对这些庞大的第三方库，我们还需要做一些额外的努力。</p>
-<h3 id="优化第三方库"><a href="#优化第三方库" class="headerlink" title="优化第三方库"></a>优化第三方库</h3><h4 id="DllPlugin"><a href="#DllPlugin" class="headerlink" title="DllPlugin"></a>DllPlugin</h4><p>DllPlugin 是基于 Windows 动态链接库（dll）的思想被创作出来的。这个插件会把第三方库单独打包到一个文件中，这个文件就是一个单纯的依赖库。<strong>这个依赖库不会跟着你的业务代码一起被重新打包，只有当依赖自身发生版本变化时才会重新打包。</strong><br>用 DllPlugin 处理文件，要分两步走:  </p>
-<ul>
-<li>基于 dll 专属的配置文件，打包 dll 库</li>
-<li>基于 webpack.config.js 文件，打包业务代码<br>以一个基于 React 的简单项目为例，我们的 dll 的配置文件可以编写如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">      // 依赖的库数组</span><br><span class="line">      vendor: [</span><br><span class="line">        &apos;prop-types&apos;,</span><br><span class="line">        &apos;babel-polyfill&apos;,</span><br><span class="line">        &apos;react&apos;,</span><br><span class="line">        &apos;react-dom&apos;,</span><br><span class="line">        &apos;react-router-dom&apos;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">      path: path.join(__dirname, &apos;dist&apos;),</span><br><span class="line">      filename: &apos;[name].js&apos;,</span><br><span class="line">      library: &apos;[name]_[hash]&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">      new webpack.DllPlugin(&#123;</span><br><span class="line">        // DllPlugin的name属性需要和libary保持一致</span><br><span class="line">        name: &apos;[name]_[hash]&apos;,</span><br><span class="line">        path: path.join(__dirname, &apos;dist&apos;, &apos;[name]-manifest.json&apos;),</span><br><span class="line">        // context需要和webpack.config.js保持一致</span><br><span class="line">        context: __dirname,</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>编写完成之后，运行这个配置文件，我们的 dist 文件夹里会出现这样两个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vendor-manifest.json</span><br><span class="line">vendor.js</span><br></pre></td></tr></table></figure></p>
-<p>vendor.js 不必解释，是我们第三方库打包的结果。这个多出来的 vendor-manifest.json，则用于描述每个第三方库对应的具体路径，我这里截取一部分给大家看下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;vendor_397f9e25e49947b8675d&quot;,</span><br><span class="line">  &quot;content&quot;: &#123;</span><br><span class="line">    &quot;./node_modules/core-js/modules/_export.js&quot;: &#123;</span><br><span class="line">      &quot;id&quot;: 0,</span><br><span class="line">        &quot;buildMeta&quot;: &#123;</span><br><span class="line">        &quot;providedExports&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;./node_modules/prop-types/index.js&quot;: &#123;</span><br><span class="line">      &quot;id&quot;: 1,</span><br><span class="line">        &quot;buildMeta&quot;: &#123;</span><br><span class="line">        &quot;providedExports&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>随后，我们只需在 webpack.config.js 里针对 dll 稍作配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  mode: &apos;production&apos;,</span><br><span class="line">  // 编译入口</span><br><span class="line">  entry: &#123;</span><br><span class="line">    main: &apos;./src/index.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 目标文件</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, &apos;dist/&apos;),</span><br><span class="line">    filename: &apos;[name].js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  // dll相关配置</span><br><span class="line">  plugins: [</span><br><span class="line">    new webpack.DllReferencePlugin(&#123;</span><br><span class="line">      context: __dirname,</span><br><span class="line">      // manifest就是我们第一步中打包出来的json文件</span><br><span class="line">      manifest: require(&apos;./dist/vendor-manifest.json&apos;),</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>一次基于 dll 的 webpack 构建过程优化，便大功告成了!</p>
-<h4 id="Happypack"><a href="#Happypack" class="headerlink" title="Happypack"></a>Happypack</h4><p>大家知道，webpack 是单线程的，就算此刻存在多个任务，你也只能排队一个接一个地等待处理。这是 webpack 的缺点，好在我们的 CPU 是多核的，Happypack 会充分释放 CPU 在多核并发方面的优势，帮我们把任务分解给多个子进程去并发执行，大大提升打包效率。<br>HappyPack 的使用方法也非常简单，只需要我们把对 loader 的配置转移到 HappyPack 中去就好，我们可以手动告诉 HappyPack 我们需要多少个并发的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const HappyPack = require(&apos;happypack&apos;)</span><br><span class="line">// 手动创建进程池</span><br><span class="line">const happyThreadPool =  HappyPack.ThreadPool(&#123; size: os.cpus().length &#125;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        // 问号后面的查询参数指定了处理这类文件的HappyPack实例的名字</span><br><span class="line">        loader: &apos;happypack/loader?id=happyBabel&apos;,</span><br><span class="line">        ...</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    ...</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">      // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应</span><br><span class="line">      id: &apos;happyBabel&apos;,</span><br><span class="line">      // 指定进程池</span><br><span class="line">      threadPool: happyThreadPool,</span><br><span class="line">      loaders: [&apos;babel-loader?cacheDirectory&apos;]</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://juejin.im/book/5b936540f265da0a9624b04b/section/5b97cd22e51d450e8f5f6375" target="_blank" rel="noopener">参考文章</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/12/js性能优化/" rel="next" title="JS性能优化">
+                <i class="fa fa-chevron-left"></i> JS性能优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -674,14 +515,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -701,8 +543,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -792,6 +643,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue项目搭建"><span class="nav-number">2.</span> <span class="nav-text">vue项目搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openlayer的简单实例"><span class="nav-number">3.</span> <span class="nav-text">openlayer的简单实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个实例-加载WMS（web-map-service）图片"><span class="nav-number">3.0.1.</span> <span class="nav-text">第二个实例,加载WMS（web map service）图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个实例：地图view的使用"><span class="nav-number">3.0.2.</span> <span class="nav-text">第三个实例：地图view的使用</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -921,6 +789,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -936,6 +808,8 @@
 
   
 
+
+  
 
 
   
