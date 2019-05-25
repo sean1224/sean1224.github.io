@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="出走半生，归来仍是少年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="時光深巷夜叶猫">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="写在前面一般的管网图是不在web端绘制，因为麻烦，一般是用离线处理。不过有时候会有一些特殊的情况，就像我现在在做的一样【汗颜】成果图 项目准备canvas1234567getContext():获取渲染上下文，可理解为获取画布对象，参数设置为2D.fillText(text,x,y):在指定的(x,y)位置填充指定的文本text.beginPath():新建一条路径，生成之后，图形绘制命令被指向到">
+<meta name="keywords" content="JS,canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue项目canvas绘制水网管道图">
+<meta property="og:url" content="http://yoursite.com/2019/05/25/canvas绘制水网管道图/index.html">
 <meta property="og:site_name" content="時光深巷夜叶猫">
-<meta property="og:description" content="出走半生，归来仍是少年">
+<meta property="og:description" content="写在前面一般的管网图是不在web端绘制，因为麻烦，一般是用离线处理。不过有时候会有一些特殊的情况，就像我现在在做的一样【汗颜】成果图 项目准备canvas1234567getContext():获取渲染上下文，可理解为获取画布对象，参数设置为2D.fillText(text,x,y):在指定的(x,y)位置填充指定的文本text.beginPath():新建一条路径，生成之后，图形绘制命令被指向到">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-25T08:47:46.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="時光深巷夜叶猫">
-<meta name="twitter:description" content="出走半生，归来仍是少年">
+<meta name="twitter:title" content="Vue项目canvas绘制水网管道图">
+<meta name="twitter:description" content="写在前面一般的管网图是不在web端绘制，因为麻烦，一般是用离线处理。不过有时候会有一些特殊的情况，就像我现在在做的一样【汗颜】成果图 项目准备canvas1234567getContext():获取渲染上下文，可理解为获取画布对象，参数设置为2D.fillText(text,x,y):在指定的(x,y)位置填充指定的文本text.beginPath():新建一条路径，生成之后，图形绘制命令被指向到">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/25/canvas绘制水网管道图/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>時光深巷夜叶猫</title>
+  <title>Vue项目canvas绘制水网管道图 | 時光深巷夜叶猫</title>
   
 
 
@@ -171,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,7 +211,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -323,9 +324,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -357,10 +358,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/25/canvas绘制水网管道图/" class="post-title-link" itemprop="url">Vue项目canvas绘制水网管道图</a>
+          <h1 class="post-title" itemprop="name headline">Vue项目canvas绘制水网管道图
+
               
             
           </h1>
@@ -449,17 +448,13 @@
       
 
       
-        
-          
-            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>一般的管网图是不在web端绘制，因为麻烦，一般是用离线处理。不过有时候会有一些特殊的情况，就像我现在在做的一样【汗颜】<a href="../img/canvasechart1.png"><strong>成果图</strong></a></p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>一般的管网图是不在web端绘制，因为麻烦，一般是用离线处理。不过有时候会有一些特殊的情况，就像我现在在做的一样【汗颜】<a href="../img/canvasechart1.png"><strong>成果图</strong></a></p>
 <h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getContext():获取渲染上下文，可理解为获取画布对象，参数设置为2D.</span><br><span class="line">fillText(text,x,y):在指定的(x,y)位置填充指定的文本text.</span><br><span class="line">beginPath():新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。</span><br><span class="line">closePath():闭合路径之后图形绘制命令又重新指向到上下文中。</span><br><span class="line">moveTo(x,y):将笔触移动到指定的坐标x以及y上。</span><br><span class="line">lineTo(x,y):绘制一条从当前位置到指定x以及y位置的直线。</span><br><span class="line">stroke():通过线条来绘制图形轮廓。</span><br></pre></td></tr></table></figure>
 <h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">项目为vue项目，数据由父组件传递，通过props获取,图像在mounted函数中渲染。</span><br></pre></td></tr></table></figure>
 <p>相关vue知识参考 <a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">vue官网</a></p>
 <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>页面所有代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;canvas</span><br><span class="line">  id=&quot;canvas&quot;</span><br><span class="line">  width=&quot;1800px&quot;</span><br><span class="line">  height=&quot;800px&quot;</span><br><span class="line">  style=&quot;border: 1px solid #ebebed;width: 900px;height: 400px;&quot;</span><br><span class="line">  &gt;&lt;/canvas&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;chart&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      config: &#123;</span><br><span class="line">        scale: 2,</span><br><span class="line">        width: 1800,</span><br><span class="line">        height: 800,</span><br><span class="line">        Left: 70,</span><br><span class="line">        Top: 90,</span><br><span class="line">        Right: 30,</span><br><span class="line">        Bottom: 60,</span><br><span class="line">        color: [&quot;#5266d7&quot;],</span><br><span class="line">        yLine: &#123;</span><br><span class="line">          splitcount: 8,</span><br><span class="line">          data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        xLine: &#123;</span><br><span class="line">          splitcount: 9,</span><br><span class="line">          data: []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      res: null //保存管网点数据</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    pointData: Array,</span><br><span class="line">    lineData: Array //这里获取的是管网的点与线数据，二者是同一条管网</span><br><span class="line">  &#125;, </span><br><span class="line">  methods: &#123;</span><br><span class="line">    getContext: () =&gt; &#123;</span><br><span class="line">      let canvas = document.getElementById(&quot;canvas&quot;);</span><br><span class="line">      let ctx = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">      return ctx;</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画出管道</span><br><span class="line">     *data 保存的点数据</span><br><span class="line">     *perX x轴单元长度</span><br><span class="line">     *perY y轴单元长度</span><br><span class="line">     */</span><br><span class="line">     drawpipeNetwork: function(data, perX, perY) &#123;</span><br><span class="line">      var ctx = this.getContext();</span><br><span class="line">      var config = this.config;</span><br><span class="line">      ctx.beginPath();</span><br><span class="line">      ctx.lineWidth = &quot;60&quot;; </span><br><span class="line">      ctx.strokeStyle = &quot;#ccc&quot;;</span><br><span class="line">      //函数纵坐标减去30是stroke宽度为60</span><br><span class="line">      ctx.moveTo(</span><br><span class="line">        data[0].x * perX + config.Left,</span><br><span class="line">        config.height - config.Bottom - (data[0].y - 1) * perY - 30</span><br><span class="line">        );</span><br><span class="line">      data.forEach(function(item) &#123;</span><br><span class="line">        ctx.lineTo(</span><br><span class="line">          item.x * perX + config.Left,</span><br><span class="line">          config.height - config.Bottom - (item.y - 1) * perY - 30</span><br><span class="line">          );</span><br><span class="line">      &#125;);</span><br><span class="line">      ctx.stroke();</span><br><span class="line">      ctx.closePath();</span><br><span class="line">    &#125;,</span><br><span class="line">    drawEarth:function() &#123;</span><br><span class="line">     let ctx = this.getContext();</span><br><span class="line">     let config =this.config;   </span><br><span class="line">     ctx.beginPath();</span><br><span class="line">     ctx.lineWidth=&apos;1&apos;;</span><br><span class="line">     ctx.strokeStyle=&apos;rgba(141, 103, 0,0.4)&apos;;</span><br><span class="line">     ctx.fillStyle=&apos;rgba(141, 103, 0,0.4)&apos;;</span><br><span class="line">     ctx.moveTo(config.Left,(config.height-config.Bottom)); </span><br><span class="line">       ctx.lineTo(config.Left,(config.height-config.Bottom));//左下角</span><br><span class="line">       ctx.lineTo(config.Left,250);//左上角</span><br><span class="line">       ctx.lineTo((config.width-config.Right),250);//右上角</span><br><span class="line">       ctx.lineTo((config.width-config.Right),(config.height-config.Bottom));//右下角</span><br><span class="line">       ctx.lineTo(config.Left,(config.height-config.Bottom));//左下角</span><br><span class="line">       ctx.stroke();</span><br><span class="line">       ctx.fill()</span><br><span class="line">       ctx.closePath();</span><br><span class="line">     &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画出最低水位</span><br><span class="line">     *data 保存的点数据</span><br><span class="line">     *perX x轴单元长度</span><br><span class="line">     *perY y轴单元长度</span><br><span class="line">     */</span><br><span class="line">     drawLowLine: function(data, perX, perY) &#123;</span><br><span class="line">      var ctx = this.getContext();</span><br><span class="line">      var config = this.config;</span><br><span class="line">      ctx.beginPath();</span><br><span class="line">      ctx.lineWidth = &quot;2&quot;;</span><br><span class="line">      ctx.strokeStyle = &quot;blue&quot;;</span><br><span class="line">      ctx.moveTo(</span><br><span class="line">        data[0].x * perX + config.Left,</span><br><span class="line">        config.height - config.Bottom - (data[0].y - 1) * perY</span><br><span class="line">        );</span><br><span class="line">      data.forEach(function(item) &#123;</span><br><span class="line">        ctx.lineTo(</span><br><span class="line">          item.x * perX + config.Left,</span><br><span class="line">          config.height - config.Bottom - (item.y - 1) * perY</span><br><span class="line">          );</span><br><span class="line">      &#125;);</span><br><span class="line">      ctx.stroke();</span><br><span class="line">      ctx.closePath();</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画出最高水位</span><br><span class="line">     *data 保存的点数据</span><br><span class="line">     *perX x轴单元长度</span><br><span class="line">     *perY y轴单元长度</span><br><span class="line">     */</span><br><span class="line">     drawHighLine: function(data, perX, perY) &#123;</span><br><span class="line">      var ctx = this.getContext();</span><br><span class="line">      var config = this.config;</span><br><span class="line">      ctx.beginPath();</span><br><span class="line">      ctx.lineWidth = &quot;2&quot;;</span><br><span class="line">      ctx.strokeStyle = &quot;red&quot;;</span><br><span class="line">      ctx.moveTo(</span><br><span class="line">        data[0].x * perX + config.Left,</span><br><span class="line">        config.height -</span><br><span class="line">        config.Bottom -</span><br><span class="line">        (data[0].y - 1 + parseFloat(data[0][&quot;maxDepth&quot;])) * perY</span><br><span class="line">        );</span><br><span class="line">      data.forEach(function(item) &#123;</span><br><span class="line">        ctx.lineTo(</span><br><span class="line">          item.x * perX + config.Left,</span><br><span class="line">          config.height -</span><br><span class="line">          config.Bottom -</span><br><span class="line">          parseFloat(item.y - 1 + parseFloat(item[&quot;maxDepth&quot;])) * perY</span><br><span class="line">          );</span><br><span class="line">      &#125;);</span><br><span class="line">      ctx.stroke();</span><br><span class="line">      ctx.closePath();</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画出坐标X轴</span><br><span class="line">     *@color 颜色</span><br><span class="line">     *@splitcount 分割单元数</span><br><span class="line">     *@linewidth 线宽</span><br><span class="line">     *@data x轴数据源</span><br><span class="line">     */</span><br><span class="line">     drawBackLineY: function(color, splitcount, linewidth, data) &#123;</span><br><span class="line">      var config = this.config;</span><br><span class="line">      var len = Math.floor(</span><br><span class="line">        (config.height - config.Top - config.Bottom) / splitcount</span><br><span class="line">        );</span><br><span class="line">      var start = config.Top;</span><br><span class="line">      for (var i = 0; i &lt;= splitcount; i++) &#123;</span><br><span class="line">        var point = start + len * i;</span><br><span class="line">        this.drawLine(</span><br><span class="line">          config.Left,</span><br><span class="line">          point,</span><br><span class="line">          (config.width / 2) * config.scale - config.Right,</span><br><span class="line">          point,</span><br><span class="line">          color,</span><br><span class="line">          linewidth</span><br><span class="line">          ); </span><br><span class="line">        this.drawText(</span><br><span class="line">          data[splitcount - i],</span><br><span class="line">          30,</span><br><span class="line">          point,</span><br><span class="line">          &quot;normal 22px Arial&quot;,</span><br><span class="line">          &quot;#605d68&quot;</span><br><span class="line">          );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画出坐标Y轴</span><br><span class="line">     *@color 颜色</span><br><span class="line">     *@splitcount 分割单元数</span><br><span class="line">     *@linewidth 线宽</span><br><span class="line">     *@data x轴数据源</span><br><span class="line">     */</span><br><span class="line">     drawBackLineX: function(color, splitcount, linewidth, data) &#123;</span><br><span class="line">      var config = this.config;</span><br><span class="line">      var len = Math.ceil(</span><br><span class="line">        (config.width - config.Left - config.Right) / splitcount</span><br><span class="line">        );</span><br><span class="line">      var start = config.Left;</span><br><span class="line">      for (var i = 0; i &lt;= splitcount; i++) &#123;</span><br><span class="line">        var point = start + len * i; </span><br><span class="line">        this.drawLine(</span><br><span class="line">          point,</span><br><span class="line">          config.Top,</span><br><span class="line">          point,</span><br><span class="line">          (config.height / 2) * config.scale - config.Bottom,</span><br><span class="line">          color,</span><br><span class="line">          linewidth</span><br><span class="line">          );</span><br><span class="line">        this.drawText(</span><br><span class="line">          data[i],</span><br><span class="line">          point - 30,</span><br><span class="line">          config.height - 20,</span><br><span class="line">          &quot;normal 22px Arial&quot;,</span><br><span class="line">          &quot;#605d68&quot;</span><br><span class="line">          );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *画线</span><br><span class="line">     *@startX 起始点x轴坐标</span><br><span class="line">     *@startY 起始点y轴坐标</span><br><span class="line">     *@endX 起始点x轴坐标</span><br><span class="line">     *@endY 起始点y轴坐标</span><br><span class="line">     *@color 线条颜色</span><br><span class="line">     *@width 线条宽度</span><br><span class="line">     *@lineJoin 线条连接选项</span><br><span class="line">     */</span><br><span class="line">     drawLine: function(startX, startY, endX, endY, color, width, lineJoin) &#123;</span><br><span class="line">      var ctx = this.getContext();</span><br><span class="line">      ctx.beginPath();</span><br><span class="line">      ctx.moveTo(startX, startY);</span><br><span class="line">      ctx.lineTo(endX, endY);</span><br><span class="line">      if (color) &#123;</span><br><span class="line">        ctx.strokeStyle = color;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (width) &#123;</span><br><span class="line">        ctx.lineWidth = width * this.config.scale;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (lineJoin) &#123;</span><br><span class="line">        ctx.lineJoin = lineJoin;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      ctx.closePath();</span><br><span class="line">      ctx.stroke();</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *写字函数</span><br><span class="line">     *@text 字的内容</span><br><span class="line">     *@x 横坐标</span><br><span class="line">     *@y 纵坐标</span><br><span class="line">     *@font 字体</span><br><span class="line">     *@color 字体颜色</span><br><span class="line">     */</span><br><span class="line">     drawText: function(text, x, y, font, color) &#123;</span><br><span class="line">      var ctx = this.getContext();</span><br><span class="line">      ctx.font = font;</span><br><span class="line">      ctx.fillStyle = color;</span><br><span class="line">      ctx.fillText(text, x, y);</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *获取x轴纵坐标的标注数组</span><br><span class="line">     *@value 纵坐标的最大值</span><br><span class="line">     *@splitMount 分割数目</span><br><span class="line">     *@fixed 小数点位数</span><br><span class="line">     */</span><br><span class="line">     getAxiasItem: function(value, splitMount, fixed) &#123;</span><br><span class="line">      let res = [];</span><br><span class="line">      let i = 0;</span><br><span class="line">      do &#123;</span><br><span class="line">        res.push(((value / splitMount) * i).toFixed(fixed));</span><br><span class="line">        i++;</span><br><span class="line">      &#125; while (i &lt;= splitMount);</span><br><span class="line">      return res;</span><br><span class="line">    &#125;,</span><br><span class="line">    /*</span><br><span class="line">     *绘制图例</span><br><span class="line">     *@text 图例内容</span><br><span class="line">     *@x 放置横坐标</span><br><span class="line">     *@y 放置纵坐标</span><br><span class="line">     *@color 图例颜色</span><br><span class="line">     *@linewidth 图例宽度</span><br><span class="line">     */</span><br><span class="line">     drawItem: function(text, x, y, color, linewidth) &#123;</span><br><span class="line">      this.drawText(text, x, y, &quot;normal 22px Arial&quot;, &quot;#605d68&quot;);</span><br><span class="line">      this.drawLine(x + 70, y - 5, x + 120, y - 5, color, linewidth);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    //使用变量保存下来接口中的点和线的数据</span><br><span class="line">    let pointData = this.pointData;</span><br><span class="line">    let lineData = this.lineData;</span><br><span class="line">    //遍历点的数据获取管网对应各点的坐标参数，保存在数组arr中</span><br><span class="line">    let arr = [];</span><br><span class="line">    let lenX = 0; //x轴长度</span><br><span class="line">    let lenY = 0; //y轴长度</span><br><span class="line">    if (pointData.length != 0) &#123;</span><br><span class="line">      for (let i = 0; i &lt; pointData.length; i++) &#123;</span><br><span class="line">        //获取x轴长度</span><br><span class="line">        if (i &gt; 0) &#123;</span><br><span class="line">          lenX += lineData[i - 1][&quot;长度&quot;];</span><br><span class="line">        &#125;</span><br><span class="line">        //获取y轴长度</span><br><span class="line">        if (pointData[i][&quot;内底标高&quot;] &gt; lenY) &#123;</span><br><span class="line">          lenY = pointData[i][&quot;内底标高&quot;];</span><br><span class="line">        &#125;</span><br><span class="line">        arr.push(&#123;</span><br><span class="line">          x: lenX,</span><br><span class="line">          y: pointData[i][&quot;内底标高&quot;],</span><br><span class="line">          minDepth: pointData[i][&quot;初始深度&quot;],</span><br><span class="line">          maxDepth: pointData[i][&quot;最大深度&quot;]</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; </span><br><span class="line">      this.res = arr;</span><br><span class="line">      //   画出坐标轴</span><br><span class="line">      let config = this.config;</span><br><span class="line">      this.drawText(&quot;水管剖面图&quot;, 850, 40, &quot;normal 26px Arial&quot;, &quot;#605d68&quot;);</span><br><span class="line">      this.drawItem(&quot;水管&quot;, config.width - 150, 50, &quot;#ccc&quot;, &quot;1&quot;);</span><br><span class="line">      this.drawItem(&quot;高水位&quot;, config.width - 300, 50, &quot;red&quot;, &quot;1&quot;);</span><br><span class="line">      this.drawItem(&quot;低水位&quot;, config.width - 450, 50, &quot;blue&quot;, &quot;1&quot;); </span><br><span class="line">      this.drawEarth();</span><br><span class="line">      this.drawBackLineY(</span><br><span class="line">        &quot;#ccc&quot;,</span><br><span class="line">        config.yLine.splitcount,</span><br><span class="line">        1,</span><br><span class="line">        [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function(x) &#123;</span><br><span class="line">          return (x + &quot;m&quot;);</span><br><span class="line">        &#125;)</span><br><span class="line">        );</span><br><span class="line">      this.drawBackLineX(</span><br><span class="line">        &quot;#ccc&quot;,</span><br><span class="line">        config.xLine.splitcount,</span><br><span class="line">        1,</span><br><span class="line">        this.getAxiasItem(lenX, 9, 0).map(function(x)&#123;</span><br><span class="line">          return (x+&apos;m&apos;)</span><br><span class="line">        &#125;)</span><br><span class="line">        );</span><br><span class="line">      this.drawpipeNetwork(</span><br><span class="line">        this.res,</span><br><span class="line">        ((config.width - config.Left - config.Right) / lenX).toFixed(2),</span><br><span class="line">        ((config.height - config.Bottom - config.Top) / 8).toFixed(4)</span><br><span class="line">        );</span><br><span class="line">      this.drawLowLine(</span><br><span class="line">        this.res,</span><br><span class="line">        ((config.width - config.Left - config.Right) / lenX).toFixed(2),</span><br><span class="line">        ((config.height - config.Bottom - config.Top) / 8).toFixed(4)</span><br><span class="line">        );</span><br><span class="line">      this.drawHighLine(</span><br><span class="line">        this.res,</span><br><span class="line">        ((config.width - config.Left - config.Right) / lenX).toFixed(2),</span><br><span class="line">        ((config.height - config.Bottom - config.Top) / 8).toFixed(4)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt; </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>文章涉及的canvas知识比较浅显，有好的解决方案欢迎打扰。</p>
 
-          
-        
       
     </div>
 
@@ -480,364 +475,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/OpenLayer在vue中的简单使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="li jian">
-      <meta itemprop="description" content="出走半生，归来仍是少年">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="時光深巷夜叶猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/19/OpenLayer在vue中的简单使用/" class="post-title-link" itemprop="url">OpenLayer在vue中的简单使用</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-19 18:53:50 / 修改时间：18:58:56" itemprop="dateCreated datePublished" datetime="2019-05-19T18:53:50+08:00">2019-05-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OpenLayer/" itemprop="url" rel="index"><span itemprop="name">OpenLayer</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
-
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
           
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕业一年多了，过去一段时间从事的是前端开发的工作，如果别人问我为什么是会从事这个行业，其实我也不知道，阴差阳错吧，毕竟大学也没有学习前端开发的。现在开始接触自己专业的东西（web端的gis），这样既可以利用之前的工作经验，还可以让自己大学期间所学的东西能够派得上用场。话不多说，下面给大家简单说下openlayer在vue中的<strong>简单运用</strong>。</p>
-<h2 id="vue项目搭建"><a href="#vue项目搭建" class="headerlink" title="vue项目搭建"></a>vue项目搭建</h2><p>项目的搭建需要安装node，打包工具和vue-cli<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack --save</span><br><span class="line">npm install vue-cli --save</span><br></pre></td></tr></table></figure></p>
-<p>接下来进入项目目录，输入以下命令后，会有对话框提示输入一些信息，默认可直接回车。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack project-name</span><br></pre></td></tr></table></figure></p>
-<p>通过生成的package.json文件夹生成依赖包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>启动服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
-<h2 id="openlayer的简单实例"><a href="#openlayer的简单实例" class="headerlink" title="openlayer的简单实例"></a>openlayer的简单实例</h2><h4 id="第一个实例"><a href="#第一个实例" class="headerlink" title="第一个实例"></a>第一个实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt; </span><br><span class="line">  &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt; </span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &apos;ol/ol.css&apos;;</span><br><span class="line">import &#123;Map, View&#125; from &apos;ol&apos;;</span><br><span class="line">import TileLayer from &apos;ol/layer/Tile&apos;;</span><br><span class="line">import OSM from &apos;ol/source/OSM&apos;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;Welcome to Ol&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    //最重要的地图对象</span><br><span class="line">    const map = new Map(&#123;</span><br><span class="line">    //让id为map 的div做为地图的容器</span><br><span class="line">    target: &apos;map&apos;,</span><br><span class="line">    //添加地图图层，可添加多个，这里添加的是open street map的瓦片图层</span><br><span class="line">    layers: [</span><br><span class="line">      new TileLayer(&#123;</span><br><span class="line">        source: new OSM()</span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">    //定义视图，只能有一个</span><br><span class="line">    view: new View(&#123;</span><br><span class="line">      center: [0, 0],//定义地图显示中心为经度为0，纬度也为0</span><br><span class="line">      zoom: 0//定义地图的显示层级为0</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped lang=&apos;scss&apos;&gt;</span><br><span class="line">#map&#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">  height: 250px;</span><br><span class="line">  margin:100px auto;</span><br><span class="line">  border:solid 1px red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="第二个实例-加载WMS（web-map-service）图片"><a href="#第二个实例-加载WMS（web-map-service）图片" class="headerlink" title="第二个实例,加载WMS（web map service）图片"></a>第二个实例,加载WMS（web map service）图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map(&#123;</span><br><span class="line">           target: &apos;map&apos;,</span><br><span class="line">           layers:[</span><br><span class="line">               new TileLayer(&#123;</span><br><span class="line">                   source: new OSM()</span><br><span class="line">               &#125;),</span><br><span class="line">               new ImageLayer(&#123;</span><br><span class="line">                   extent: [-13884991, 2870341, -7455066, 6338219],//设置地图的边界，超出范围则不渲染</span><br><span class="line">                   source: new ImageWMS(&#123;</span><br><span class="line">                       url: &apos;https://ahocevar.com/geoserver/wms&apos;,</span><br><span class="line">                       params: &#123;&apos;LAYERS&apos;: &apos;topp:states&apos;&#125;,</span><br><span class="line">                       ratio: 1,// 比例，值大于一，</span><br><span class="line">                       serverType: &apos;geoserver&apos;// WMS服务类型</span><br><span class="line">                   &#125;)</span><br><span class="line">               &#125;)</span><br><span class="line">           ],</span><br><span class="line">           view: new View(&#123;</span><br><span class="line">                center: [-6655.5402445057125, 6709968.258934638],</span><br><span class="line">                zoom: 13</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="第三个实例：地图view的使用"><a href="#第三个实例：地图view的使用" class="headerlink" title="第三个实例：地图view的使用"></a>第三个实例：地图view的使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;div id=<span class="string">'map'</span>&gt;&lt;/div&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToLeft()'</span> value=<span class="string">'左移'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToTop()'</span> value=<span class="string">'上移'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToMax()'</span> value=<span class="string">'放大'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToBJ()'</span> value=<span class="string">'移动到合肥'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'fitToChengdu()'</span> value=<span class="string">'移动到成都并自适应显示'</span>&gt; </span><br><span class="line">	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'ol/ol.css'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;<span class="built_in">Map</span>, View&#125; <span class="keyword">from</span> <span class="string">'ol'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;Tile&#125; <span class="keyword">from</span> <span class="string">'ol/layer'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;transform&#125; <span class="keyword">from</span> <span class="string">'ol/proj'</span></span><br><span class="line"><span class="keyword">import</span> OSM <span class="keyword">from</span> <span class="string">'ol/source/OSM'</span>;  </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">	name:<span class="string">'sample3'</span>,</span><br><span class="line">	data () &#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;<span class="attr">map</span>:&#123;&#125;&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	methods:&#123;</span><br><span class="line">		moveToLeft()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView(); </span><br><span class="line">			<span class="keyword">let</span> mapCenter = view.getCenter();</span><br><span class="line">      <span class="comment">// 让地图中心的x值增加，即可使得地图向左移动，增加的值根据效果可自由设定</span></span><br><span class="line">      mapCenter[<span class="number">0</span>] += <span class="number">50000</span>;</span><br><span class="line">      view.setCenter(mapCenter);</span><br><span class="line">      <span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToTop()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> mapCenter=view.getCenter();</span><br><span class="line">			mapCenter[<span class="number">1</span>]+=<span class="number">50000</span>;</span><br><span class="line">			view.setCenter(mapCenter);</span><br><span class="line">			<span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToMax()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			view.setZoom(view.getZoom()+<span class="number">1</span>);</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToBJ()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> viewCenter=transform([<span class="number">117.215761</span>,<span class="number">31.801256</span>],<span class="string">'EPSG:4326'</span>,<span class="string">'EPSG:3857'</span>);</span><br><span class="line">			view.setCenter(viewCenter);</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="comment">//定位到成都并最大化显示</span></span><br><span class="line">		fitToChengdu()&#123;</span><br><span class="line">			<span class="comment">//fit(extent,size),extent是要显示的经纬度范围，size为在显示区域的长宽数组</span></span><br><span class="line">			<span class="keyword">this</span>.map.getView().fit([<span class="number">104</span>, <span class="number">30.6</span>, <span class="number">104.12</span>, <span class="number">30.74</span>], <span class="keyword">this</span>.map.getSize());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	mounted () &#123; </span><br><span class="line">		  <span class="keyword">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>(&#123;</span><br><span class="line">			layers:[</span><br><span class="line">			<span class="keyword">new</span> Tile(&#123;<span class="attr">source</span>: <span class="keyword">new</span> OSM()&#125;)</span><br><span class="line">			],</span><br><span class="line">			view: <span class="keyword">new</span> View(&#123;</span><br><span class="line">				<span class="comment">// 设置北京为地图中心，此处进行坐标转换， 把EPSG:4326的坐标，转换为EPSG:3857坐标，因为ol默认使用的是EPSG:3857坐标</span></span><br><span class="line">				center: transform([<span class="number">116.41</span>, <span class="number">39.90</span>], <span class="string">'EPSG:4326'</span>, <span class="string">'EPSG:3857'</span>),</span><br><span class="line">				projection:<span class="string">'EPSG:3857'</span>,</span><br><span class="line">				zoom: <span class="number">10</span>,</span><br><span class="line">				<span class="comment">// 限制地图缩放最大级别为14，最小级别为10</span></span><br><span class="line">        minZoom: <span class="number">10</span>,</span><br><span class="line">        maxZoom: <span class="number">14</span></span><br><span class="line">			&#125;),</span><br><span class="line">			target: <span class="string">'map'</span></span><br><span class="line">		&#125;) </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;style lang='scss' scoped&gt;</span></span><br><span class="line"><span class="regexp">#map&#123;</span></span><br><span class="line"><span class="regexp">	width:500px;</span></span><br><span class="line"><span class="regexp">	height: 250px;</span></span><br><span class="line"><span class="regexp">	border:solid 1px red;</span></span><br><span class="line"><span class="regexp">	margin: 50px auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文章仅限于新手使用，所使用的实例是openlayer简单的是个实例。不过管中窥豹，可见一斑。openlayer多为配置项，如同echarts插件，说简单很简单，说复杂也有很多东西可以去学习。</p>
-<p>  注：<br><a href="https://github.com/sean1224/gis-lixi" target="_blank" rel="noopener">项目已上传，欢迎star</a><br><a href="https://openlayers.org/" title="openlayer官网" target="_blank" rel="noopener">openlayer官网</a><br><a href="http://weilin.me/ol3-primer/index.html" title="openlayer中文翻译文档" target="_blank" rel="noopener">openlayer中文翻译文档</a><br><a href="https://cn.vuejs.org/v2/guide/" title="vue官网" target="_blank" rel="noopener">vue官网</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/js性能优化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="li jian">
-      <meta itemprop="description" content="出走半生，归来仍是少年">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="時光深巷夜叶猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/12/js性能优化/" class="post-title-link" itemprop="url">JS性能优化</a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/05/19/OpenLayer在vue中的简单使用/" rel="next" title="OpenLayer在vue中的简单使用">
+                <i class="fa fa-chevron-left"></i> OpenLayer在vue中的简单使用
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-12 20:01:50 / 修改时间：20:19:46" itemprop="dateCreated datePublished" datetime="2019-05-12T20:01:50+08:00">2019-05-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="webpack性能瓶颈"><a href="#webpack性能瓶颈" class="headerlink" title="webpack性能瓶颈"></a>webpack性能瓶颈</h2><p>用过 webpack 的同学都对“打包”和“压缩”这样的事情烂熟于心webpack 的优化瓶颈，主要是两个方面:    </p>
-<ul>
-<li>webpack 的构建过程太花时间  </li>
-<li>webpack 打包的结果体积太大  </li>
-</ul>
-<h2 id="webpack优化方案"><a href="#webpack优化方案" class="headerlink" title="webpack优化方案"></a>webpack优化方案</h2><h3 id="优化loader加载"><a href="#优化loader加载" class="headerlink" title="优化loader加载"></a>优化loader加载</h3><p>最常见的优化方式是，用 include 或 exclude 来帮我们避免不必要的转译，比如 webpack 官方在介绍 babel-loader 时给出的示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.js$/,</span><br><span class="line">      exclude: /(node_modules|bower_components)/,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: &apos;babel-loader&apos;,</span><br><span class="line">        options: &#123;</span><br><span class="line">          presets: [&apos;@babel/preset-env&apos;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这段代码帮我们规避了对庞大的 node_modules 文件夹或者 bower_components 文件夹的处理。但通过限定文件范围带来的性能提升是有限的。除此之外，如果我们选择开启缓存将转译结果缓存至文件系统，则至少可以将 babel-loader 的工作效率提升两倍。要做到这点，我们只需要为 loader 增加相应的参数设定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loader: &apos;babel-loader?cacheDirectory=true&apos;</span><br></pre></td></tr></table></figure></p>
-<p>尽管我们可以在 loader 配置时通过写入 exclude 去避免 babel-loader 对不必要的文件的处理，但是考虑到这个规则仅作用于这个 loader，像一些类似 UglifyJsPlugin 的 webpack 插件在工作时依然会被这些庞大的第三方库拖累，webpack 构建速度依然会因此大打折扣。所以针对这些庞大的第三方库，我们还需要做一些额外的努力。</p>
-<h3 id="优化第三方库"><a href="#优化第三方库" class="headerlink" title="优化第三方库"></a>优化第三方库</h3><h4 id="DllPlugin"><a href="#DllPlugin" class="headerlink" title="DllPlugin"></a>DllPlugin</h4><p>DllPlugin 是基于 Windows 动态链接库（dll）的思想被创作出来的。这个插件会把第三方库单独打包到一个文件中，这个文件就是一个单纯的依赖库。<strong>这个依赖库不会跟着你的业务代码一起被重新打包，只有当依赖自身发生版本变化时才会重新打包。</strong><br>用 DllPlugin 处理文件，要分两步走:  </p>
-<ul>
-<li>基于 dll 专属的配置文件，打包 dll 库</li>
-<li>基于 webpack.config.js 文件，打包业务代码<br>以一个基于 React 的简单项目为例，我们的 dll 的配置文件可以编写如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">      // 依赖的库数组</span><br><span class="line">      vendor: [</span><br><span class="line">        &apos;prop-types&apos;,</span><br><span class="line">        &apos;babel-polyfill&apos;,</span><br><span class="line">        &apos;react&apos;,</span><br><span class="line">        &apos;react-dom&apos;,</span><br><span class="line">        &apos;react-router-dom&apos;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">      path: path.join(__dirname, &apos;dist&apos;),</span><br><span class="line">      filename: &apos;[name].js&apos;,</span><br><span class="line">      library: &apos;[name]_[hash]&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">      new webpack.DllPlugin(&#123;</span><br><span class="line">        // DllPlugin的name属性需要和libary保持一致</span><br><span class="line">        name: &apos;[name]_[hash]&apos;,</span><br><span class="line">        path: path.join(__dirname, &apos;dist&apos;, &apos;[name]-manifest.json&apos;),</span><br><span class="line">        // context需要和webpack.config.js保持一致</span><br><span class="line">        context: __dirname,</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>编写完成之后，运行这个配置文件，我们的 dist 文件夹里会出现这样两个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vendor-manifest.json</span><br><span class="line">vendor.js</span><br></pre></td></tr></table></figure></p>
-<p>vendor.js 不必解释，是我们第三方库打包的结果。这个多出来的 vendor-manifest.json，则用于描述每个第三方库对应的具体路径，我这里截取一部分给大家看下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;vendor_397f9e25e49947b8675d&quot;,</span><br><span class="line">  &quot;content&quot;: &#123;</span><br><span class="line">    &quot;./node_modules/core-js/modules/_export.js&quot;: &#123;</span><br><span class="line">      &quot;id&quot;: 0,</span><br><span class="line">        &quot;buildMeta&quot;: &#123;</span><br><span class="line">        &quot;providedExports&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;./node_modules/prop-types/index.js&quot;: &#123;</span><br><span class="line">      &quot;id&quot;: 1,</span><br><span class="line">        &quot;buildMeta&quot;: &#123;</span><br><span class="line">        &quot;providedExports&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>随后，我们只需在 webpack.config.js 里针对 dll 稍作配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  mode: &apos;production&apos;,</span><br><span class="line">  // 编译入口</span><br><span class="line">  entry: &#123;</span><br><span class="line">    main: &apos;./src/index.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 目标文件</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, &apos;dist/&apos;),</span><br><span class="line">    filename: &apos;[name].js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  // dll相关配置</span><br><span class="line">  plugins: [</span><br><span class="line">    new webpack.DllReferencePlugin(&#123;</span><br><span class="line">      context: __dirname,</span><br><span class="line">      // manifest就是我们第一步中打包出来的json文件</span><br><span class="line">      manifest: require(&apos;./dist/vendor-manifest.json&apos;),</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>一次基于 dll 的 webpack 构建过程优化，便大功告成了!</p>
-<h4 id="Happypack"><a href="#Happypack" class="headerlink" title="Happypack"></a>Happypack</h4><p>大家知道，webpack 是单线程的，就算此刻存在多个任务，你也只能排队一个接一个地等待处理。这是 webpack 的缺点，好在我们的 CPU 是多核的，Happypack 会充分释放 CPU 在多核并发方面的优势，帮我们把任务分解给多个子进程去并发执行，大大提升打包效率。<br>HappyPack 的使用方法也非常简单，只需要我们把对 loader 的配置转移到 HappyPack 中去就好，我们可以手动告诉 HappyPack 我们需要多少个并发的进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const HappyPack = require(&apos;happypack&apos;)</span><br><span class="line">// 手动创建进程池</span><br><span class="line">const happyThreadPool =  HappyPack.ThreadPool(&#123; size: os.cpus().length &#125;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        // 问号后面的查询参数指定了处理这类文件的HappyPack实例的名字</span><br><span class="line">        loader: &apos;happypack/loader?id=happyBabel&apos;,</span><br><span class="line">        ...</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    ...</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">      // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应</span><br><span class="line">      id: &apos;happyBabel&apos;,</span><br><span class="line">      // 指定进程池</span><br><span class="line">      threadPool: happyThreadPool,</span><br><span class="line">      loaders: [&apos;babel-loader?cacheDirectory&apos;]</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://juejin.im/book/5b936540f265da0a9624b04b/section/5b97cd22e51d450e8f5f6375" target="_blank" rel="noopener">参考文章</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -847,14 +516,20 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDQwMS8yMDkzMw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -874,8 +549,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -971,6 +655,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目准备"><span class="nav-number">2.</span> <span class="nav-text">项目准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas"><span class="nav-number">2.1.</span> <span class="nav-text">canvas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue"><span class="nav-number">2.2.</span> <span class="nav-text">vue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构"><span class="nav-number">3.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">4.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1100,6 +801,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1115,6 +820,23 @@
 
   
 
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/05/25/canvas绘制水网管道图/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   
