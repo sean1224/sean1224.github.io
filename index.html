@@ -341,6 +341,372 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sean1224.github.io/2019/06/15/OpenLayer动态热力图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="li jian">
+      <meta itemprop="description" content="出走半生，归来仍是少年">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="時光深巷夜叶猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/15/OpenLayer动态热力图/" class="post-title-link" itemprop="url">OpenLayer动态热力图</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 08:53:50" itemprop="dateCreated datePublished" datetime="2019-06-15T08:53:50+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 00:53:33" itemprop="dateModified" datetime="2019-06-16T00:53:33+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OpenLayer/" itemprop="url" rel="index"><span itemprop="name">OpenLayer</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/15/OpenLayer动态热力图/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/15/OpenLayer动态热力图/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>目前openlayer已集成heatmap,官网的demo有相关的例子，数据源为KML(是一种基于XML语法与格式的、用于描述和保存地理信息（如点、线、图像、多边形和模型等）的编码规范，可以被Google Earth 和 Google Maps 识别并显示),还可以是GeoJSON（是一种对各种地理数据结构进行编码的格式，基于JavaScript对象表示法的地理空间信息数据交换格式）和feature元素，这里采用的是feature元素。</p>
+<h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>1、生成热力图<br>2、动态变化</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1、地图div，滑块input<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'dynamicReport'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、获取模拟数据或是真实数据，生成features,数据格式为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;resCode&quot;: 0,</span><br><span class="line">    &quot;data&quot;: &#123;</span><br><span class="line">        &quot;2019-3-1&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;x&quot;: &quot;121.255340 &quot;,</span><br><span class="line">                &quot;y&quot;: &quot;31.327597 &quot;,</span><br><span class="line">                &quot;value&quot;: &quot;0.1&quot;,</span><br><span class="line">                &quot;name&quot;: &quot;J16&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/*获取动态features数据</span><br><span class="line">* @time 时间点</span><br><span class="line">*/</span><br><span class="line">let getDynamicFeatures=function(time)&#123;</span><br><span class="line">    let features=[];</span><br><span class="line">    heatMap[time].forEach(function(item,index)&#123;</span><br><span class="line">        //遍历所有的接口要素</span><br><span class="line">        let value=_this.createFeature(&#123;x:item[&apos;x&apos;],y:item[&apos;y&apos;],value:item[&apos;value&apos;]&#125;)</span><br><span class="line">        features.push(value);</span><br><span class="line">    &#125;)</span><br><span class="line">    return features;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、初始化地图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">let vectorSource = new Vector(&#123;&#125;);</span><br><span class="line">vectorSource.addFeatures(this.getDynamicFeatures(&apos;2019-3-1&apos;));</span><br><span class="line">let map = new Map(&#123;</span><br><span class="line">    target: &apos;dynamicReport&apos;,</span><br><span class="line">    layers: [</span><br><span class="line">        new TileLayer(&#123;</span><br><span class="line">            source:new OSM()</span><br><span class="line">        &#125;),</span><br><span class="line">        new HeatmapLayer(&#123;</span><br><span class="line">            source: vectorSource,</span><br><span class="line">            blur:15,</span><br><span class="line">            radius:45,</span><br><span class="line">            weight:&apos;value&apos;,</span><br><span class="line">            gradient:[&apos;#00f&apos;, &apos;#0ff&apos;, &apos;#0f0&apos;, &apos;#ff0&apos;, &apos;#f00&apos;]</span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    view:new View(&#123;</span><br><span class="line">        center: [0, 0],</span><br><span class="line">        zoom:18</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4、绑定滚动条事件，获取特定时间的热力图数据，修改vectorSource中的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vectorSource.clear();</span><br><span class="line">vectorSource.addFeatures(getDynamicFeatures(newTime));</span><br></pre></td></tr></table></figure></p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p><img src="../img/heatMap.gif" alt="结果展示"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sean1224.github.io/2019/06/08/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="li jian">
+      <meta itemprop="description" content="出走半生，归来仍是少年">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="時光深巷夜叶猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/08/1/" class="post-title-link" itemprop="url">JS性能优化</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-08 22:54:50 / 修改时间：22:54:33" itemprop="dateCreated datePublished" datetime="2019-06-08T22:54:50+08:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/08/1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/08/1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sean1224.github.io/2019/05/25/canvas绘制水网管道图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -651,7 +1017,7 @@
 <p>启动服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
 <h2 id="openlayer的简单实例"><a href="#openlayer的简单实例" class="headerlink" title="openlayer的简单实例"></a>openlayer的简单实例</h2><h4 id="第一个实例"><a href="#第一个实例" class="headerlink" title="第一个实例"></a>第一个实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt; </span><br><span class="line">  &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt; </span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &apos;ol/ol.css&apos;;</span><br><span class="line">import &#123;Map, View&#125; from &apos;ol&apos;;</span><br><span class="line">import TileLayer from &apos;ol/layer/Tile&apos;;</span><br><span class="line">import OSM from &apos;ol/source/OSM&apos;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;Welcome to Ol&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    //最重要的地图对象</span><br><span class="line">    const map = new Map(&#123;</span><br><span class="line">    //让id为map 的div做为地图的容器</span><br><span class="line">    target: &apos;map&apos;,</span><br><span class="line">    //添加地图图层，可添加多个，这里添加的是open street map的瓦片图层</span><br><span class="line">    layers: [</span><br><span class="line">      new TileLayer(&#123;</span><br><span class="line">        source: new OSM()</span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">    //定义视图，只能有一个</span><br><span class="line">    view: new View(&#123;</span><br><span class="line">      center: [0, 0],//定义地图显示中心为经度为0，纬度也为0</span><br><span class="line">      zoom: 0//定义地图的显示层级为0</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped lang=&apos;scss&apos;&gt;</span><br><span class="line">#map&#123;</span><br><span class="line">  width: 400px;</span><br><span class="line">  height: 250px;</span><br><span class="line">  margin:100px auto;</span><br><span class="line">  border:solid 1px red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="第二个实例-加载WMS（web-map-service）图片"><a href="#第二个实例-加载WMS（web-map-service）图片" class="headerlink" title="第二个实例,加载WMS（web map service）图片"></a>第二个实例,加载WMS（web map service）图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map(&#123;</span><br><span class="line">           target: &apos;map&apos;,</span><br><span class="line">           layers:[</span><br><span class="line">               new TileLayer(&#123;</span><br><span class="line">                   source: new OSM()</span><br><span class="line">               &#125;),</span><br><span class="line">               new ImageLayer(&#123;</span><br><span class="line">                   extent: [-13884991, 2870341, -7455066, 6338219],//设置地图的边界，超出范围则不渲染</span><br><span class="line">                   source: new ImageWMS(&#123;</span><br><span class="line">                       url: &apos;https://ahocevar.com/geoserver/wms&apos;,</span><br><span class="line">                       params: &#123;&apos;LAYERS&apos;: &apos;topp:states&apos;&#125;,</span><br><span class="line">                       ratio: 1,// 比例，值大于一，</span><br><span class="line">                       serverType: &apos;geoserver&apos;// WMS服务类型</span><br><span class="line">                   &#125;)</span><br><span class="line">               &#125;)</span><br><span class="line">           ],</span><br><span class="line">           view: new View(&#123;</span><br><span class="line">                center: [-6655.5402445057125, 6709968.258934638],</span><br><span class="line">                zoom: 13</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="第三个实例：地图view的使用"><a href="#第三个实例：地图view的使用" class="headerlink" title="第三个实例：地图view的使用"></a>第三个实例：地图view的使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;div id=<span class="string">'map'</span>&gt;&lt;/div&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToLeft()'</span> value=<span class="string">'左移'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToTop()'</span> value=<span class="string">'上移'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToMax()'</span> value=<span class="string">'放大'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToBJ()'</span> value=<span class="string">'移动到合肥'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'fitToChengdu()'</span> value=<span class="string">'移动到成都并自适应显示'</span>&gt; </span><br><span class="line">	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'ol/ol.css'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;<span class="built_in">Map</span>, View&#125; <span class="keyword">from</span> <span class="string">'ol'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;Tile&#125; <span class="keyword">from</span> <span class="string">'ol/layer'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;transform&#125; <span class="keyword">from</span> <span class="string">'ol/proj'</span></span><br><span class="line"><span class="keyword">import</span> OSM <span class="keyword">from</span> <span class="string">'ol/source/OSM'</span>;  </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">	name:<span class="string">'sample3'</span>,</span><br><span class="line">	data () &#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;<span class="attr">map</span>:&#123;&#125;&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	methods:&#123;</span><br><span class="line">		moveToLeft()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView(); </span><br><span class="line">			<span class="keyword">let</span> mapCenter = view.getCenter();</span><br><span class="line">      <span class="comment">// 让地图中心的x值增加，即可使得地图向左移动，增加的值根据效果可自由设定</span></span><br><span class="line">      mapCenter[<span class="number">0</span>] += <span class="number">50000</span>;</span><br><span class="line">      view.setCenter(mapCenter);</span><br><span class="line">      <span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToTop()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> mapCenter=view.getCenter();</span><br><span class="line">			mapCenter[<span class="number">1</span>]+=<span class="number">50000</span>;</span><br><span class="line">			view.setCenter(mapCenter);</span><br><span class="line">			<span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToMax()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			view.setZoom(view.getZoom()+<span class="number">1</span>);</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToBJ()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> viewCenter=transform([<span class="number">117.215761</span>,<span class="number">31.801256</span>],<span class="string">'EPSG:4326'</span>,<span class="string">'EPSG:3857'</span>);</span><br><span class="line">			view.setCenter(viewCenter);</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="comment">//定位到成都并最大化显示</span></span><br><span class="line">		fitToChengdu()&#123;</span><br><span class="line">			<span class="comment">//fit(extent,size),extent是要显示的经纬度范围，size为在显示区域的长宽数组</span></span><br><span class="line">			<span class="keyword">this</span>.map.getView().fit([<span class="number">104</span>, <span class="number">30.6</span>, <span class="number">104.12</span>, <span class="number">30.74</span>], <span class="keyword">this</span>.map.getSize());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	mounted () &#123; </span><br><span class="line">		  <span class="keyword">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>(&#123;</span><br><span class="line">			layers:[</span><br><span class="line">			<span class="keyword">new</span> Tile(&#123;<span class="attr">source</span>: <span class="keyword">new</span> OSM()&#125;)</span><br><span class="line">			],</span><br><span class="line">			view: <span class="keyword">new</span> View(&#123;</span><br><span class="line">				<span class="comment">// 设置北京为地图中心，此处进行坐标转换， 把EPSG:4326的坐标，转换为EPSG:3857坐标，因为ol默认使用的是EPSG:3857坐标</span></span><br><span class="line">				center: transform([<span class="number">116.41</span>, <span class="number">39.90</span>], <span class="string">'EPSG:4326'</span>, <span class="string">'EPSG:3857'</span>),</span><br><span class="line">				projection:<span class="string">'EPSG:3857'</span>,</span><br><span class="line">				zoom: <span class="number">10</span>,</span><br><span class="line">				<span class="comment">// 限制地图缩放最大级别为14，最小级别为10</span></span><br><span class="line">        minZoom: <span class="number">10</span>,</span><br><span class="line">        maxZoom: <span class="number">14</span></span><br><span class="line">			&#125;),</span><br><span class="line">			target: <span class="string">'map'</span></span><br><span class="line">		&#125;) </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;style lang='scss' scoped&gt;</span></span><br><span class="line"><span class="regexp">#map&#123;</span></span><br><span class="line"><span class="regexp">	width:500px;</span></span><br><span class="line"><span class="regexp">	height: 250px;</span></span><br><span class="line"><span class="regexp">	border:solid 1px red;</span></span><br><span class="line"><span class="regexp">	margin: 50px auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="第三个实例：地图view的使用"><a href="#第三个实例：地图view的使用" class="headerlink" title="第三个实例：地图view的使用"></a>第三个实例：地图view的使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;div id=<span class="string">'map'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToLeft()'</span> value=<span class="string">'左移'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToTop()'</span> value=<span class="string">'上移'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToMax()'</span> value=<span class="string">'放大'</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'moveToBJ()'</span> value=<span class="string">'移动到合肥'</span>&gt; </span><br><span class="line">		&lt;input type=<span class="string">"button"</span> @click=<span class="string">'fitToChengdu()'</span> value=<span class="string">'移动到成都并自适应显示'</span>&gt; </span><br><span class="line">	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'ol/ol.css'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;<span class="built_in">Map</span>, View&#125; <span class="keyword">from</span> <span class="string">'ol'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;Tile&#125; <span class="keyword">from</span> <span class="string">'ol/layer'</span>; </span><br><span class="line"><span class="keyword">import</span> &#123;transform&#125; <span class="keyword">from</span> <span class="string">'ol/proj'</span></span><br><span class="line"><span class="keyword">import</span> OSM <span class="keyword">from</span> <span class="string">'ol/source/OSM'</span>;  </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">	name:<span class="string">'sample3'</span>,</span><br><span class="line">	data () &#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;<span class="attr">map</span>:&#123;&#125;&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	methods:&#123;</span><br><span class="line">		moveToLeft()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView(); </span><br><span class="line">			<span class="keyword">let</span> mapCenter = view.getCenter();</span><br><span class="line">      <span class="comment">// 让地图中心的x值增加，即可使得地图向左移动，增加的值根据效果可自由设定</span></span><br><span class="line">      mapCenter[<span class="number">0</span>] += <span class="number">50000</span>;</span><br><span class="line">      view.setCenter(mapCenter);</span><br><span class="line">      <span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToTop()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> mapCenter=view.getCenter();</span><br><span class="line">			mapCenter[<span class="number">1</span>]+=<span class="number">50000</span>;</span><br><span class="line">			view.setCenter(mapCenter);</span><br><span class="line">			<span class="keyword">this</span>.map.render();</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToMax()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			view.setZoom(view.getZoom()+<span class="number">1</span>);</span><br><span class="line">		&#125;,</span><br><span class="line">		moveToBJ()&#123;</span><br><span class="line">			<span class="keyword">let</span> view = <span class="keyword">this</span>.map.getView();</span><br><span class="line">			<span class="keyword">let</span> viewCenter=transform([<span class="number">117.215761</span>,<span class="number">31.801256</span>],<span class="string">'EPSG:4326'</span>,<span class="string">'EPSG:3857'</span>);</span><br><span class="line">			view.setCenter(viewCenter);</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="comment">//定位到成都并最大化显示</span></span><br><span class="line">		fitToChengdu()&#123;</span><br><span class="line">			<span class="comment">//fit(extent,size),extent是要显示的经纬度范围，size为在显示区域的长宽数组</span></span><br><span class="line">			<span class="keyword">this</span>.map.getView().fit([<span class="number">104</span>, <span class="number">30.6</span>, <span class="number">104.12</span>, <span class="number">30.74</span>], <span class="keyword">this</span>.map.getSize());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	mounted () &#123; </span><br><span class="line">		  <span class="keyword">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>(&#123;</span><br><span class="line">			layers:[</span><br><span class="line">			<span class="keyword">new</span> Tile(&#123;<span class="attr">source</span>: <span class="keyword">new</span> OSM()&#125;)</span><br><span class="line">			],</span><br><span class="line">			view: <span class="keyword">new</span> View(&#123;</span><br><span class="line">				<span class="comment">// 设置北京为地图中心，此处进行坐标转换， 把EPSG:4326的坐标，转换为EPSG:3857坐标，因为ol默认使用的是EPSG:3857坐标</span></span><br><span class="line">				center: transform([<span class="number">116.41</span>, <span class="number">39.90</span>], <span class="string">'EPSG:4326'</span>, <span class="string">'EPSG:3857'</span>),</span><br><span class="line">				projection:<span class="string">'EPSG:3857'</span>,</span><br><span class="line">				zoom: <span class="number">10</span>,</span><br><span class="line">				<span class="comment">// 限制地图缩放最大级别为14，最小级别为10</span></span><br><span class="line">        minZoom: <span class="number">10</span>,</span><br><span class="line">        maxZoom: <span class="number">14</span></span><br><span class="line">			&#125;),</span><br><span class="line">			target: <span class="string">'map'</span></span><br><span class="line">		&#125;) </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;style lang='scss' scoped&gt;</span></span><br><span class="line"><span class="regexp">#map&#123;</span></span><br><span class="line"><span class="regexp">	width:500px;</span></span><br><span class="line"><span class="regexp">	height: 250px;</span></span><br><span class="line"><span class="regexp">	border:solid 1px red;</span></span><br><span class="line"><span class="regexp">	margin: 50px auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文章仅限于新手使用，所使用的实例是openlayer简单的是个实例。不过管中窥豹，可见一斑。openlayer多为配置项，如同echarts插件，说简单很简单，说复杂也有很多东西可以去学习。</p>
 <p>  注：<br><a href="https://github.com/sean1224/gis-lixi" target="_blank" rel="noopener">项目已上传，欢迎star</a><br><a href="https://openlayers.org/" title="openlayer官网" target="_blank" rel="noopener">openlayer官网</a><br><a href="http://weilin.me/ol3-primer/index.html" title="openlayer中文翻译文档" target="_blank" rel="noopener">openlayer中文翻译文档</a><br><a href="https://cn.vuejs.org/v2/guide/" title="vue官网" target="_blank" rel="noopener">vue官网</a></p>
 
@@ -932,7 +1298,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
